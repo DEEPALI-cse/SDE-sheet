@@ -1,3 +1,4 @@
+//approach 1
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
@@ -17,4 +18,42 @@ public:
          }
      }
     }
+};
+//approach 2
+class Solution
+{
+    public:
+    void sort012(int a[], int n)
+    {
+       int c=0, c1=0, c2=0;
+       for(int i=0; i<n; i++){
+           switch(a[i]){
+               case 0:
+               c++;
+               break;
+               
+               case 1:
+               c1++;
+               break;
+               
+               case 2:
+               c2++;
+               break;
+           }
+       }
+       int i=0;
+       while(c>0){
+           a[i++]=0;
+           c--;
+       }
+       while(c1>0){
+           a[i++]=1;
+           c1--;
+       }
+       while(c2>0){
+           a[i++]=2;
+           c2--;
+       }
+    }
+    
 };
