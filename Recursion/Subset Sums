@@ -1,0 +1,23 @@
+
+class Solution
+{
+public:
+
+    void find(int ind, int sum, vector<int> &arr, int n, vector<int> &subsetsum){
+        if(ind == n){
+            subsetsum.push_back(sum);
+            return;
+        }
+        find(ind+1, sum+arr[ind], arr, n, subsetsum);
+        find(ind+1, sum, arr, n, subsetsum);
+    }
+
+    vector<int> subsetSums(vector<int> arr, int n)
+    {
+        vector<int> subsetsum;
+        find(0, 0, arr, n, subsetsum);
+        sort(subsetsum.begin(), subsetsum.end());
+        return subsetsum;
+    }
+};
+
